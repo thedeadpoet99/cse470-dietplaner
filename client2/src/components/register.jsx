@@ -5,12 +5,14 @@ const Register = () => {
   const [formData, setFormData] = useState({
     name: '',
     username: '',
-    email: '', // Add email field to formData state
+    email: '',
     password: '',
     dob: '',
     height: '',
     weight: ''
   });
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
 
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -19,19 +21,25 @@ const Register = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      // Send registration data to the server
       const res = await axios.post('http://localhost:3001/user/register', formData);
-      console.log(res.data); // Log the response from the server
-      // Optionally, redirect the user or show a success message
+      setMessage('Registration Successful');
+      setTimeout(() => {
+        setMessage('');
+        window.location.href = '/login';
+      }, 1000);
     } catch (error) {
-      console.error('Registration failed:', error.response.data.message);
-      // Optionally, display an error message to the user
+      if (error.response && error.response.data && error.response.data.message) {
+        setError(error.response.data.message);
+      } else {
+        setError('Registration Failed');
+      }
     }
   };
-
   return (
     <div className="max-w-md mx-auto bg-white shadow-md rounded px-8 py-6 mt-5 mb-10">
       <h2 className="text-2xl font-semibold mb-4 text-center text-gray-800">User Registration</h2>
+      {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+      {message && <p className="text-green-500 text-sm mb-4">{message}</p>}
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">Name:</label>
@@ -42,7 +50,7 @@ const Register = () => {
           <input type="text" id="username" name="username" value={formData.username} onChange={handleChange} className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
         </div>
         <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">Email:</label> {/* Add email field */}
+          <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">Email:</label>
           <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required />
         </div>
         <div className="mb-4">
