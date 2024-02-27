@@ -42,16 +42,18 @@ const Login = () => {
             localStorage.setItem('user', JSON.stringify(user));
     
             // Set isLoggedIn to true
-            setIsLoggedIn(true);
-    
+            
             // Redirect to user profile page
             window.location.href = `/dashboard`;
+            setIsLoggedIn(true);
+            
         } catch (error) {
             console.error('Login error:', error.response.data);
             // Set error state to display error message
             setError(error.response.data.message);
         }
     };
+    
 
     return (
         <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded shadow-md">
