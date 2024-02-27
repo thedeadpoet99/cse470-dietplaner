@@ -9,6 +9,7 @@ import LoginPage from './pages/LoginPage';
 import UserProfilePage from './pages/UserProfilePage';
 import UserDashboard from './pages/UserDashboard';
 import HomePage from './pages/HomePage';
+import UserPasswordChangePage from './pages/UserPasswordChangePage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path='/userprofile/:username' element={<UserProfilePage/>} />
       <Route path ='/dashboard' element= {<UserDashboard/>} />
       <Route path ='/' element= {<HomePage/>} />
+      <Route path = '/user/passwordchange' element = {<UserPasswordChangePage/>} />
       </Routes>
       <Footer/>
     </Router>
