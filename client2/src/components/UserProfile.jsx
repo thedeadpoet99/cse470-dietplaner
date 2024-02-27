@@ -37,14 +37,14 @@ const UserProfile = () => {
                     <p className="text-lg text-center text-gray-800"><strong>Height:</strong> {userProfile.height}</p>
                     <p className="text-lg text-center text-gray-800"><strong>Weight:</strong> {userProfile.weight}</p>
                 </div>
+                {/* Style the Change Password link */}
+                <Link
+                    to="/user/passwordchange"
+                    className="block w-full bg-blue-500 text-white font-bold py-3 px-4 rounded-b-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600 transition duration-300 text-center"
+                >
+                    Change Password
+                </Link>
             </div>
-            {/* Style the Change Password link */}
-            <Link
-                to="/user/passwordchange"
-                className="inline-block px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600 transition duration-300"
-            >
-                Change Password
-            </Link>
         </div>
     );
 };

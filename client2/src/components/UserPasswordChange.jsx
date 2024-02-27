@@ -64,10 +64,10 @@ const UserPasswordChange = () => {
   }
 
 
-  return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+ return (
+    <div className="flex items-center justify-center h-screen bg-gray-100">
       <div className="bg-white rounded-lg shadow-md p-8 w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6">Change Password</h2>
+        <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Change Password</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="oldPassword" className="block text-gray-700">Old Password</label>
@@ -102,7 +102,7 @@ const UserPasswordChange = () => {
               className="form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
             />
           </div>
-          <button type="submit" className="bg-blue-500 text-white rounded-md py-2 px-4 hover:bg-blue-600 focus:outline-none focus:bg-blue-600 transition duration-300">Change Password</button>
+          <button type="submit" className="bg-gradient-to-r from-pink-400 to-purple-500 hover:from-pink-500 hover:to-purple-600 text-white font-bold py-3 px-6 rounded-full focus:outline-none focus:shadow-outline transition duration-300 w-full">Change Password</button>
         </form>
         {successMessage && <div className="mt-4 bg-green-100 text-green-700 px-4 py-2 rounded-md">{successMessage}</div>}
         {error && <div className="mt-4 bg-red-100 text-red-700 px-4 py-2 rounded-md">{error}</div>}

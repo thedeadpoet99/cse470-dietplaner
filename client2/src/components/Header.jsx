@@ -32,7 +32,7 @@ const Header = () => {
                             <>
                                 <a href="/dashboard" className="text-gray-200 hover:text-white hover:bg-purple-500 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300">Dashboard</a>
                                 <a href="/userprofile/:username" className="text-gray-200 hover:text-white hover:bg-purple-500 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300">Profile</a>
-                                <button className="text-gray-200 hover:text-white hover:bg-purple-500 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300 bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50" onClick={handleLogout}>Logout</button>
+                                <button className="text-gray-200 hover:text-white hover:bg-purple-500 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300" onClick={handleLogout}>Logout</button>
                             </>
                         ) : (
                             <>

@@ -50,6 +50,7 @@ exports.loginUser = async (req, res) => {
   }
 };
 
+//Logout
 exports.logoutUser = (req, res) => {
   res.json({ message: "Logout successful" });
 };
