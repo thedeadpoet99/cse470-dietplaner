@@ -8,6 +8,7 @@ const Login = () => {
     });
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [error, setError] = useState(null);
+    const [message, setMessage] = useState('');
 
     useEffect(() => {
         // Check if there is a token in localStorage
@@ -23,7 +24,9 @@ const Login = () => {
         // Remove token from localStorage
         localStorage.removeItem('token');
         // Set isLoggedIn to false
+        setMessage('');
         setIsLoggedIn(false);
+        
     };
 
     const handleSubmit = async (e) => {
@@ -44,7 +47,11 @@ const Login = () => {
             // Set isLoggedIn to true
             
             // Redirect to user profile page
-            window.location.href = `/dashboard`;
+            setMessage('Login Successful');
+            setTimeout(() => {
+                setMessage('');
+                window.location.href = `/dashboard`;
+            }, 1000);
             setIsLoggedIn(true);
             
         } catch (error) {
@@ -56,11 +63,12 @@ const Login = () => {
     
 
     return (
+        <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-pink-200 to-purple-200">
         <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded shadow-md">
             <h2 className="text-2xl font-semibold mb-4 text-center">{isLoggedIn ? '' : 'Login'}</h2>
             {isLoggedIn ? (
                 <h1>
-                    You are already logged in.
+                    {message && <p className="text-green-500 text-sm mb-4">{message}</p>}
                 </h1>
             ) : (
                 <form onSubmit={handleSubmit}>
@@ -76,6 +84,7 @@ const Login = () => {
                     <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Login</button>
                 </form>
             )}
+        </div>
         </div>
     );
 };

@@ -19,22 +19,24 @@ const UserProfile = () => {
     }, []);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div className="flex items-center justify-center h-screen">Loading...</div>;
     }
 
     if (!userProfile) {
-        return <div>User not found</div>;
+        return <div className="flex items-center justify-center h-screen">User not found</div>;
     }
 
     return (
-        <div>
-            <h2 className="text-2xl font-semibold mb-4">User Profile</h2>
-            <div className="mb-4">
-                <p><strong>Name:</strong> {userProfile.name}</p>
-                <p><strong>Username:</strong> {userProfile.username}</p>
-                <p><strong>Date of Birth:</strong> {userProfile.dob}</p>
-                <p><strong>Height:</strong> {userProfile.height}</p>
-                <p><strong>Weight:</strong> {userProfile.weight}</p>
+        <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-pink-200 to-purple-200">
+            <div className="w-full md:w-2/3 lg:w-1/2 xl:w-1/3 mx-4 bg-gradient-to-r from-blue-400 to-purple-500 rounded-lg overflow-hidden shadow-lg">
+                <h2 className="text-2xl font-semibold text-white bg-gray-800 p-4 text-center">User Profile</h2>
+                <div className="p-6">
+                    <p className="text-lg text-center text-gray-800"><strong>Name:</strong> {userProfile.name}</p>
+                    <p className="text-lg text-center text-gray-800"><strong>Username:</strong> {userProfile.username}</p>
+                    <p className="text-lg text-center text-gray-800"><strong>Date of Birth:</strong> {userProfile.dob}</p>
+                    <p className="text-lg text-center text-gray-800"><strong>Height:</strong> {userProfile.height}</p>
+                    <p className="text-lg text-center text-gray-800"><strong>Weight:</strong> {userProfile.weight}</p>
+                </div>
             </div>
             {/* Style the Change Password link */}
             <Link

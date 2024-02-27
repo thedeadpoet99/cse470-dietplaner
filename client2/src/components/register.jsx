@@ -36,6 +36,7 @@ const Register = () => {
     }
   };
   return (
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-pink-200 to-purple-200">
     <div className="max-w-md mx-auto bg-white shadow-md rounded px-8 py-6 mt-5 mb-10">
       <h2 className="text-2xl font-semibold mb-4 text-center text-gray-800">User Registration</h2>
       {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
@@ -71,6 +72,7 @@ const Register = () => {
         </div>
         <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Register</button>
       </form>
+    </div>
     </div>
   );
 };

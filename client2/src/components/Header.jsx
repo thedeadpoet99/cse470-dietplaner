@@ -17,11 +17,10 @@ const Header = () => {
         // Update isLoggedIn state to false
         setIsLoggedIn(false);
         window.location.href = 'http://localhost:3000';
-
     };
 
     return (
-        <nav className="bg-gradient-to-r from-blue-500 to-purple-600 p-4 shadow-lg">
+        <nav className="fixed top-0 w-full bg-gradient-to-r from-blue-500 to-purple-600 p-4 shadow-lg z-10">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="flex justify-between items-center">
                     <div className="flex items-center flex-shrink-0">
