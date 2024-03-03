@@ -80,3 +80,29 @@ exports.changePassword = async (req, res) => {
 // function generateToken(user) {
 //     return jwt.sign({ username: user.username }, process.env.JWT_SECRET, { expiresIn: '1h' }); // Token expires in 1 hour
 // }
+
+// const User = require("../models/user");
+
+// Update user profile
+exports.updateUserProfile = async (req, res) => { 
+  const { username, height, weight, diseases, medications } = req.body;  
+  try {
+      const user = await User.findOne({ username });
+      if (!user) {
+          return res.status(404).json({ error: 'User not found' });
+      }
+      // Update user profile fields
+      user.height = height;
+      user.weight = weight;
+      user.diseases = diseases;
+      user.medications = medications;
+
+      // Save the updated user profile
+      await user.save();
+
+      res.json({ message: 'User profile updated successfully' });
+  } catch (error) {
+      console.error('Error updating user profile:', error);
+      res.status(500).json({ error: 'Internal server error' });
+  }
+};

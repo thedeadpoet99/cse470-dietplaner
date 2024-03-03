@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import UpdateProfile from './UpdateProfile'; // Add this import
 const UserProfile = () => {
     const [userProfile, setUserProfile] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -37,6 +37,12 @@ const UserProfile = () => {
                     <p className="text-lg text-center text-white"><strong>Height:</strong> {userProfile.height}</p>
                     <p className="text-lg text-center text-white"><strong>Weight:</strong> {userProfile.weight}</p>
                 </div>
+                <Link
+                    to="/user/updateprofile"
+                    className="block w-full bg-blue-500 text-white font-bold py-3 px-4 rounded-b-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600 transition duration-300 text-center"
+                >
+                    Update Profile
+                </Link>
                 {/* Style the Change Password link */}
                 <Link
                     to="/user/passwordchange"

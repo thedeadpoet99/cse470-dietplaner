@@ -37,7 +37,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         enum: ['user', 'admin'],
         default: 'user'
-    }
+    },
+    diseases: [{ type: String }] ,
+    medications: [{type: String }]
 });
 
 // Create a User model from the schema

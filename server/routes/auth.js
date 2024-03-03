@@ -15,6 +15,7 @@ router.post('/register', userControllers.registerUser);
 router.post('/login', userControllers.loginUser);
 router.post('/logout', userControllers.logoutUser);
 router.post('/password/change', userControllers.changePassword);
+router.post('/profile/update', userControllers.updateUserProfile);
 
 module.exports = router;
 

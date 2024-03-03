@@ -1,11 +1,29 @@
 const express = require("express");
 const router = express.Router();
 const userProfileController = require("../controller/userProfileController");
+const userController = require('../controller/userControllers');
+const User = require("../models/user"); 
 
+// Route to update user profile
+// router.put('/:username', userController.updateUserProfile);
 router.get('/profile/:username', userProfileController.getUserProfile);
 
 module.exports = router;
 
+
+//CUT THIS LATER
+// Route to fetch all users
+router.get('/', async (req, res) => {
+    try {
+        const users = await User.find();
+        res.json(users);
+    } catch (error) {
+        console.error("Error fetching users:", error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+});
+
+module.exports = router;
 // const express = require("express");
 // const router = express.Router();
 // const User = require("../models/user");
@@ -38,3 +56,7 @@ module.exports = router;
 
 
 // module.exports = router;
+
+// userRoutes.js
+
+

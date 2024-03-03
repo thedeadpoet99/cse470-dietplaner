@@ -14,7 +14,8 @@ exports.getUserProfile = async (req, res) => {
             email: user.email,
             dob: user.dob,
             height: user.height,
-            weight: user.weight
+            weight: user.weight,
+            diseases: user.diseases 
         };
         res.json(userProfile);
     } catch (error) {
