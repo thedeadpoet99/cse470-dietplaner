@@ -124,7 +124,7 @@ const UpdateProfile = () => {
                 <div>
                     <label className="block text-white text-sm font-bold mb-2">Diseases</label>
                     <div className="flex flex-wrap">
-                        {["diabetes", "hypertension", "obesity", "heartDisease", "highCholesterol", "digestiveIssues"].map((disease) => (
+                        {["Diabetes", "Hypertension", "Obesity", "HeartDisease", "HighCholesterol", "DigestiveIssues","Allergies","Others.."].map((disease) => (
                             <label key={disease} className="inline-flex items-center mr-4">
                                 <input
                                     type="checkbox"
