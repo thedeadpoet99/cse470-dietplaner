@@ -1,25 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import UpdateProfile from './UpdateProfile'; // Add this import
+import axios from 'axios';
+
 const UserProfile = () => {
     const [userProfile, setUserProfile] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Retrieve user data from localStorage
-        const userData = localStorage.getItem('user');
-        if (userData) {
-            const user = JSON.parse(userData);
-            setUserProfile(user);
-            setLoading(false);
-        } else {
-            setLoading(false);
-        }
+        // Function to fetch user profile data
+        const fetchUserProfile = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    setError('User not authenticated');
+                    setLoading(false);
+                    return;
+                }
+
+                const username = JSON.parse(atob(token.split('.')[1])).username;
+
+                const response = await axios.get(`http://localhost:3001/user/profile/${username}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+
+                setUserProfile(response.data);
+                setLoading(false);
+            } catch (error) {
+                console.error('Error fetching user profile:', error);
+                setError('Error fetching user profile');
+                setLoading(false);
+            }
+        };
+
+        fetchUserProfile();
     }, []);
 
     if (loading) {
         return <div className="flex items-center justify-center h-screen">Loading...</div>;
+    }
+
+    if (error) {
+        return <div className="flex items-center justify-center h-screen">{error}</div>;
     }
 
     if (!userProfile) {
@@ -36,6 +60,10 @@ const UserProfile = () => {
                     <p className="text-lg text-center text-white"><strong>Date of Birth:</strong> {userProfile.dob}</p>
                     <p className="text-lg text-center text-white"><strong>Height:</strong> {userProfile.height}</p>
                     <p className="text-lg text-center text-white"><strong>Weight:</strong> {userProfile.weight}</p>
+                    {/* Display diseases */}
+                    <p className="text-lg text-center text-white"><strong>Diseases:</strong> {userProfile.diseases.join(', ')}</p>
+                    {/* Display medications */}
+                    <p className="text-lg text-center text-white"><strong>Medications:</strong> {userProfile.medications}</p>
                 </div>
                 <Link
                     to="/user/updateprofile"
