@@ -9,6 +9,7 @@ import LoginPage from './pages/LoginPage';
 import UserProfilePage from './pages/UserProfilePage';
 import UserDashboard from './pages/UserDashboard';
 import CommunityPage from './pages/CommunityPage';
+import DetailPage from './pages/DetailPage';
 import HomePage from './pages/HomePage';
 import UserPasswordChangePage from './pages/UserPasswordChangePage';
 import UpdateProfilePage from './pages/UpdateProfilePage'; // import the UpdateProfilePage component
@@ -23,6 +24,7 @@ function App() {
       <Route path='/user/updateprofile' element={<UpdateProfilePage/>} /> {/* Add this route */}
       <Route path ='/dashboard' element= {<UserDashboard/>} />
       <Route path ='/post' element= {<CommunityPage/>} />
+      <Route path ='/post/Details/:id' element= {<DetailPage/>} />
       <Route path ='/' element= {<HomePage/>} />
       <Route path = '/user/passwordchange' element = {<UserPasswordChangePage/>} />
       </Routes>

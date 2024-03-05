@@ -79,7 +79,9 @@ const Community = () => {
             {posts.map((post) => (
                 <li key={post._id} className="py-4 bg-purple-100 rounded-lg px-4 mb-4">
                     <div className="mb-2">
-                        <h2 className="text-xl font-semibold">{post.title}</h2>
+                        <Link to={`Details/${post._id}`}>
+                            <h2 className="text-xl font-semibold">{post.title}</h2>
+                        </Link>
                     </div>
                     <p className="text-gray-700">{post.content}</p>
                     <p className="text-gray-500">-{post.name}</p>
