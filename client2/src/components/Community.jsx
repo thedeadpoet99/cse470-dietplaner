@@ -74,42 +74,44 @@ const Community = () => {
 
     return (
         <div className="flex min-h-screen bg-gradient-to-r from-pink-200 to-purple-200">
-    <div className="max-w-2xl mx-auto flex-grow mt-20 ml-20">
-        <ul className="divide-y divide-gray-300">
-            {posts.map((post) => (
-                <li key={post._id} className="py-4 bg-purple-100 rounded-lg px-4 mb-4">
-                    <div className="mb-2">
-                        <Link to={`Details/${post._id}`}>
-                            <h2 className="text-xl font-semibold">{post.title}</h2>
-                        </Link>
-                    </div>
-                    <p className="text-gray-700">{post.content}</p>
-                    <p className="text-gray-500">-{post.name}</p>
-                </li>
-            ))}
-        </ul>
-    </div>
-    <div className="fixed right-0 top-20 w-1/3 p-4">
-        <div>
-            <h1 className="text-2xl font-semibold mb-4">New Blog Post</h1>
-            <input
-                type="text"
-                placeholder="Type your title"
-                value={postTitle}
-                onChange={(e) => setPostTitle(e.target.value)}
-                className="w-full border rounded py-2 px-3 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <textarea
-                placeholder="Type your content"
-                value={postContent}
-                onChange={(e) => setPostContent(e.target.value)}
-                className="w-full border rounded py-2 px-3 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            ></textarea>
-            <button onClick={sendPost} className="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Send</button>
+            <div className="max-w-2xl mx-auto flex-grow mt-20 ml-20">
+                <ul className="divide-y divide-gray-300">
+                    {posts.map((post) => (
+                        <li key={post._id} className="py-4 bg-purple-100 rounded-lg px-4 mb-4">
+                            <div className="mb-2">
+                                <Link to={`Details/${post._id}`}>
+                                    <h2 className="text-xl font-semibold">{post.title}</h2>
+                                </Link>
+                            </div>
+                            <div className="text-gray-700 overflow-hidden line-clamp-3">{post.content}</div>
+                            <Link to={`Details/${post._id}`} className="text-blue-500">Read More</Link>
+                            <p className="text-gray-500">-{post.name}</p>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+            <div className="max-w-2xl mx-auto flex-grow mt-20 ml-20">
+                <div className='fixed py-4 bg-purple-100 rounded-lg px-4 mb-4 mt-20'>
+                    <h1 className="text-2xl font-semibold mb-4">New Blog Post</h1>
+                    <input
+                        type="text"
+                        placeholder="Type your title"
+                        value={postTitle}
+                        onChange={(e) => setPostTitle(e.target.value)}
+                        className="w-full border rounded py-2 px-3 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        required
+                    />
+                    <textarea
+                        placeholder="Type your content"
+                        value={postContent}
+                        onChange={(e) => setPostContent(e.target.value)}
+                        className="w-full border rounded py-2 px-3 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    ></textarea>
+                    <button onClick={sendPost} className="text-lg bg-purple-500 hover:bg-purple-600 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105">Post</button>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-    )
+    );
 }
 
 export default Community;

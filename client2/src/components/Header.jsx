@@ -2,11 +2,15 @@ import React, { useState, useEffect } from 'react';
 
 const Header = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [currentPage, setCurrentPage] = useState('');
+
 
     useEffect(() => {
         // Check if there is a token in localStorage
         const token = localStorage.getItem('token');
         setIsLoggedIn(!!token); // Set isLoggedIn to true if token exists
+
+        setCurrentPage(window.location.pathname);
     }, []);
 
     const handleLogout = () => {
@@ -27,18 +31,18 @@ const Header = () => {
                         <span className="font-extrabold text-2xl tracking-tight text-purple-100">DietPlanner</span>
                     </div>
                     <div className="flex space-x-4">
-                        <a href="/" className="text-gray-200 hover:text-white hover:bg-purple-500 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300">Home</a>
+                        <a href="/" className={`text-gray-200 hover:text-white ${currentPage === '/' ? 'bg-purple-500' : 'hover:bg-purple-500'} px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300`}>Home</a>
                         {isLoggedIn ? (
                             <>
-                                <a href="/post" className="text-gray-200 hover:text-white hover:bg-purple-500 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300">Community</a>
-                                <a href="/dashboard" className="text-gray-200 hover:text-white hover:bg-purple-500 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300">Dashboard</a>
-                                <a href="/userprofile/:username" className="text-gray-200 hover:text-white hover:bg-purple-500 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300">Profile</a>
-                                <button className="text-gray-200 hover:text-white hover:bg-purple-500 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300" onClick={handleLogout}>Logout</button>
+                                <a href="/post" className={`text-gray-200 hover:text-white ${currentPage === '/post' ? 'bg-purple-500' : 'hover:bg-purple-500'} px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300`}>Community</a>
+                                <a href="/dashboard" className={`text-gray-200 hover:text-white ${currentPage === '/dashboard' ? 'bg-purple-500' : 'hover:bg-purple-500'} px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300`}>Dashboard</a>
+                                <a href="/userprofile/:username" className={`text-gray-200 hover:text-white ${currentPage === '/userprofile/:username' ? 'bg-purple-500' : 'hover:bg-purple-500'} px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300`}>Profile</a>
+                                <button className={`text-gray-200 hover:text-white ${currentPage === '/logout' ? 'bg-purple-500' : 'hover:bg-purple-500'} px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300`} onClick={handleLogout}>Logout</button>
                             </>
                         ) : (
                             <>
-                                <a href="/login" className="text-gray-200 hover:text-white hover:bg-purple-500 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300">Login</a>
-                                <a href="/register" className="text-gray-200 hover:text-white hover:bg-purple-500 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300">Register</a>
+                                <a href="/login" className={`text-gray-200 hover:text-white ${currentPage === '/login' ? 'bg-purple-500' : 'hover:bg-purple-500'} px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300`}>Login</a>
+                                <a href="/register" className={`text-gray-200 hover:text-white ${currentPage === '/register' ? 'bg-purple-500' : 'hover:bg-purple-500'} px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300`}>Register</a>
                             </>
                         )}
                     </div>
