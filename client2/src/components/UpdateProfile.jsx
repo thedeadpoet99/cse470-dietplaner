@@ -21,9 +21,43 @@ const UpdateProfile = () => {
     const [formData, setFormData] = useState({
         height: '',
         weight: '',
-        diseases: [], // Initialize diseases as an empty array
+        diseases: [], 
         medications: ''
     });
+
+    // Fetch user profile data and populate the form fields on component mount
+    useEffect(() => {
+        const fetchUserProfile = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    setError('User not authenticated');
+                    return;
+                }
+
+                const username = JSON.parse(atob(token.split('.')[1])).username;
+
+                const response = await axios.get(`http://localhost:3001/user/profile/${username}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+
+                const userProfileData = response.data;
+                setFormData({
+                    height: userProfileData.height,
+                    weight: userProfileData.weight,
+                    diseases: userProfileData.diseases,
+                    medications: userProfileData.medications
+                });
+            } catch (error) {
+                console.error('Error fetching user profile:', error);
+                setError('Error fetching user profile');
+            }
+        };
+
+        fetchUserProfile();
+    }, []);
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -43,17 +77,16 @@ const UpdateProfile = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            console.log("Username:", username); // Log username
-            console.log("Form Data:", formData); // Log formData
+            console.log("Username:", username); 
+            console.log("Form Data:", formData); 
             const response = await axios.post('http://localhost:3001/user/profile/update', {
                 username,
                 ...formData
             });
-            console.log(response.data); // log success message or handle accordingly
-            // Redirect to user profile after successful update
+            console.log(response.data); 
             setTimeout(() => {
                 window.location.href = `/userprofile/${username}`;
-            }, 1000); // Adjust the timeout value as needed
+            }, 1000); 
         } catch (error) {
             console.error('Profile update failed:', error.response.data);
             setError('Profile update failed');
@@ -119,13 +152,10 @@ const UpdateProfile = () => {
                 </div>
                 <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Update Profile</button>
             </form>
-            {/* Success and error messages */}
             {error && <div className="mt-4 bg-red-100 text-red-700 px-4 py-2 rounded-md">{error}</div>}
         </div>
     );
 };
 
 export default UpdateProfile;
-
-
 
