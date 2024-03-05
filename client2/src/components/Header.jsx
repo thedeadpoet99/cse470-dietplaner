@@ -30,6 +30,7 @@ const Header = () => {
                         <a href="/" className="text-gray-200 hover:text-white hover:bg-purple-500 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300">Home</a>
                         {isLoggedIn ? (
                             <>
+                                <a href="/post" className="text-gray-200 hover:text-white hover:bg-purple-500 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300">Community</a>
                                 <a href="/dashboard" className="text-gray-200 hover:text-white hover:bg-purple-500 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300">Dashboard</a>
                                 <a href="/userprofile/:username" className="text-gray-200 hover:text-white hover:bg-purple-500 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300">Profile</a>
                                 <button className="text-gray-200 hover:text-white hover:bg-purple-500 px-3 py-2 rounded-md text-lg font-medium transition-colors duration-300" onClick={handleLogout}>Logout</button>

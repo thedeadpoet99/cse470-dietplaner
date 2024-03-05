@@ -6,6 +6,7 @@ const User = require('./models/user');
 const homeRoutes = require('./routes/home')
 const authRoutes = require('./routes/auth')
 const userRoutes = require('./routes/user')
+const postRoutes = require('./routes/post')
 const app = express();
 const staticPath = path.join(__dirname, 'client2/build');
 const fs = require('fs');
@@ -21,6 +22,8 @@ app.use('/', homeRoutes)
 app.use('/user', authRoutes)
 
 app.use('/user', userRoutes);
+
+app.use('/post', postRoutes);
 
 app.use(express.static(staticPath));
 
