@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Register = () => {
@@ -13,6 +13,13 @@ const Register = () => {
   });
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    // Check if there is a token in localStorage
+    const token = localStorage.getItem('token');
+    setIsLoggedIn(!!token); // Set isLoggedIn to true if token exists
+  }, []);
 
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -38,7 +45,15 @@ const Register = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-pink-200 to-purple-200">
       <div className="max-w-2xl w-full bg-pink-100 shadow-lg rounded-lg overflow-hidden mt-20">
+      {isLoggedIn && (
+          <div className="text-center">
+            <p className="text-2xl font-semibold mb-6 text-center text-gray-800 px-6 pt-6">Please log out before registering another account</p>
+          </div>
+        )}
+        {!isLoggedIn && (
+          <>
         <h2 className="text-3xl font-semibold mb-6 text-center text-gray-800 px-6 pt-6">User Registration</h2>
+        
         {error && <p className="text-red-500 text-sm mb-4 px-6">{error}</p>}
         {message && <p className="text-green-500 text-sm mb-4 px-6">{message}</p>}
         <form onSubmit={handleSubmit} className="px-6 pb-6">
@@ -72,6 +87,8 @@ const Register = () => {
           </div>
           <button type="submit" className="bg-gradient-to-r from-pink-400 to-purple-500 hover:from-pink-500 hover:to-purple-600 text-white font-bold py-3 px-6 rounded-full focus:outline-none focus:shadow-outline transition duration-300 w-full">Register</button>
         </form>
+        </>
+        )}
       </div>
     </div>
   );
