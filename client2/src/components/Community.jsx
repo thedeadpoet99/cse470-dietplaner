@@ -70,7 +70,7 @@ const Community = () => {
             fetchPosts();
             return;
         }
-    }, [username]); // Run only once on mount
+    }, [username]); 
 
     return (
         <div className="flex min-h-screen bg-gradient-to-r from-pink-200 to-purple-200">

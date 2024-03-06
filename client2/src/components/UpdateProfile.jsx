@@ -6,7 +6,7 @@ const UpdateProfile = () => {
     const [error, setError] = useState('');
     const [username, setUsername] = useState('');
 
-    // Fetch username from localStorage token on component mount
+    // Fetch username  
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (!token) {
@@ -15,9 +15,9 @@ const UpdateProfile = () => {
             const decodedToken = JSON.parse(atob(token.split('.')[1]));
             setUsername(decodedToken.username);
         }
-    }, []); // Empty dependency array ensures this effect runs only once on mount
+    }, []); 
 
-    // State for form fields
+    
     const [formData, setFormData] = useState({
         height: '',
         weight: '',
@@ -25,7 +25,7 @@ const UpdateProfile = () => {
         medications: ''
     });
 
-    // Fetch user profile data and populate the form fields on component mount
+    //Fetch user profile data 
     useEffect(() => {
         const fetchUserProfile = async () => {
             try {
@@ -94,7 +94,7 @@ const UpdateProfile = () => {
     };
 
     return (
-        <div className="max-w-md mx-auto bg-gradient-to-r from-blue-400 to-purple-500 shadow-md rounded px-8 py-6 mt-5 mb-10">
+        <div className="max-w-lg mx-auto bg-gradient-to-r from-blue-400 to-purple-500 shadow-md rounded px-5 py-6 mt-20 mb-10">
             <h2 className="text-2xl font-semibold mb-4 text-center text-white">Update Profile</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>

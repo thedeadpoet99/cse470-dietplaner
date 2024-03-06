@@ -12,7 +12,7 @@ import CommunityPage from './pages/CommunityPage';
 import DetailPage from './pages/DetailPage';
 import HomePage from './pages/HomePage';
 import UserPasswordChangePage from './pages/UserPasswordChangePage';
-import UpdateProfilePage from './pages/UpdateProfilePage'; // import the UpdateProfilePage component
+import UpdateProfilePage from './pages/UpdateProfilePage'; 
 function App() {
   return (
     <Router>
@@ -21,7 +21,7 @@ function App() {
       <Route path='/register' element={<RegisterPage/>} />
       <Route path='/login' element={<LoginPage/>} />
       <Route path='/userprofile/:username' element={<UserProfilePage/>} />
-      <Route path='/user/updateprofile' element={<UpdateProfilePage/>} /> {/* Add this route */}
+      <Route path='/user/updateprofile' element={<UpdateProfilePage/>} /> {/* route */}
       <Route path ='/dashboard' element= {<UserDashboard/>} />
       <Route path ='/post' element= {<CommunityPage/>} />
       <Route path ='/post/Details/:id' element= {<DetailPage/>} />

@@ -52,7 +52,7 @@ const UserProfile = () => {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-pink-200 to-purple-200">
-            <div className="w-full md:w-2/3 lg:w-1/2 xl:w-1/3 mx-4 bg-gradient-to-r from-blue-400 to-purple-500 rounded-lg overflow-hidden shadow-lg mb-8">
+            <div className="w-full md:w-2/3 lg:w-1/2 xl:w-1/3 mx-4 bg-gradient-to-r from-blue-400 to-purple-500 rounded-lg overflow-hidden shadow-lg mb-1">
                 <h2 className="text-2xl font-semibold text-white bg-gradient-to-r from-purple-500 to-blue-400 p-4 text-center">User Profile</h2>
                 <div className="p-6">
                     <p className="text-lg text-center text-white"><strong>Name:</strong> {userProfile.name}</p>
@@ -60,9 +60,7 @@ const UserProfile = () => {
                     <p className="text-lg text-center text-white"><strong>Date of Birth:</strong> {userProfile.dob}</p>
                     <p className="text-lg text-center text-white"><strong>Height:</strong> {userProfile.height}</p>
                     <p className="text-lg text-center text-white"><strong>Weight:</strong> {userProfile.weight}</p>
-                    {/* Display diseases */}
                     <p className="text-lg text-center text-white"><strong>Diseases:</strong> {userProfile.diseases.join(', ')}</p>
-                    {/* Display medications */}
                     <p className="text-lg text-center text-white"><strong>Medications:</strong> {userProfile.medications}</p>
                 </div>
                 <Link
