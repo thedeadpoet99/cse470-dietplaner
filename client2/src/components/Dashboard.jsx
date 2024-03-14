@@ -26,7 +26,7 @@ const Dashboard = () => {
     }
     
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-pink-200 to-purple-200">
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-beige-100 to-beige-300">
             <h2 className="text-2xl font-semibold mb-4 text-center text-gray-800">Hello, {userProfile.name}!</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <button className="text-lg bg-purple-500 hover:bg-purple-600 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105">Meal Plan Generator</button>

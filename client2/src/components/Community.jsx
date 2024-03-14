@@ -73,7 +73,7 @@ const Community = () => {
     }, [username]); // Run only once on mount
 
     return (
-        <div className="flex min-h-screen bg-gradient-to-r from-pink-200 to-purple-200">
+        <div className="flex min-h-screen bg-gradient-to-r from-beige-100 to-beige-300">
             <div className="max-w-2xl mx-auto flex-grow mt-20 ml-20">
                 <ul className="divide-y divide-gray-300">
                     {posts.map((post) => (

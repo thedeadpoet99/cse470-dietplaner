@@ -26,7 +26,7 @@ const Details = () => {
     }, [id]);
 
     return (
-        <div className="flex min-h-screen mt-20 bg-gradient-to-r from-pink-200 to-purple-200">
+        <div className="flex min-h-screen mt-20 bg-gradient-to-rfrom-beige-100 to-beige-300">
 
             <div className="max-w-2xl w-full p-4">
                 <div className="bg-white rounded-lg shadow-md p-6">

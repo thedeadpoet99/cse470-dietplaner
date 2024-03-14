@@ -65,7 +65,7 @@ const UserPasswordChange = () => {
 
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-pink-200 to-purple-200">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-beige-100 to-beige-300">
   <div className="max-w-md mx-auto bg-gradient-to-r from-blue-400 to-purple-500 shadow-md rounded px-8 py-6 mt-5 mb-10">
     <div className="p-8">
     <h2 className="text-2xl font-semibold mb-4 text-center text-white">Change Password</h2>

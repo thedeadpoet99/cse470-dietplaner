@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.slide img {
+  width: 100%;
+  transition: transform 0.3s ease-in-out; /* Adding a transition effect for smooth zoom */
+}
+
+.slide img:hover {
+  transform: scale(1.1); /* Zooming in by 10% when hovered */
+}

@@ -13,6 +13,7 @@ import DetailPage from './pages/DetailPage';
 import HomePage from './pages/HomePage';
 import UserPasswordChangePage from './pages/UserPasswordChangePage';
 import UpdateProfilePage from './pages/UpdateProfilePage'; // import the UpdateProfilePage component
+import SlideShowPage from './pages/SlideShowPage';
 function App() {
   return (
     <Router>

@@ -51,7 +51,7 @@ const UserProfile = () => {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-pink-200 to-purple-200">
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-beige-100 to-beige-300">
             <div className="w-full md:w-2/3 lg:w-1/2 xl:w-1/3 mx-4 bg-gradient-to-r from-blue-400 to-purple-500 rounded-lg overflow-hidden shadow-lg mb-8">
                 <h2 className="text-2xl font-semibold text-white bg-gradient-to-r from-purple-500 to-blue-400 p-4 text-center">User Profile</h2>
                 <div className="p-6">
