@@ -60,9 +60,7 @@ const UserProfile = () => {
                     <p className="text-lg text-center text-white"><strong>Date of Birth:</strong> {userProfile.dob}</p>
                     <p className="text-lg text-center text-white"><strong>Height:</strong> {userProfile.height}</p>
                     <p className="text-lg text-center text-white"><strong>Weight:</strong> {userProfile.weight}</p>
-                    {/* Display diseases */}
                     <p className="text-lg text-center text-white"><strong>Diseases:</strong> {userProfile.diseases.join(', ')}</p>
-                    {/* Display medications */}
                     <p className="text-lg text-center text-white"><strong>Medications:</strong> {userProfile.medications}</p>
                 </div>
                 <Link

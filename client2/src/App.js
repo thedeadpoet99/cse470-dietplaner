@@ -22,7 +22,7 @@ function App() {
       <Route path='/register' element={<RegisterPage/>} />
       <Route path='/login' element={<LoginPage/>} />
       <Route path='/userprofile/:username' element={<UserProfilePage/>} />
-      <Route path='/user/updateprofile' element={<UpdateProfilePage/>} /> {/* Add this route */}
+      <Route path='/user/updateprofile' element={<UpdateProfilePage/>} /> {/* route */}
       <Route path ='/dashboard' element= {<UserDashboard/>} />
       <Route path ='/post' element= {<CommunityPage/>} />
       <Route path ='/post/Details/:id' element= {<DetailPage/>} />

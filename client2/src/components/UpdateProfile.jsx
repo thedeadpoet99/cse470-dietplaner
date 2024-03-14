@@ -6,7 +6,7 @@ const UpdateProfile = () => {
     const [error, setError] = useState('');
     const [username, setUsername] = useState('');
 
-    // Fetch username from localStorage token on component mount
+    // Fetch username  
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (!token) {
@@ -15,9 +15,9 @@ const UpdateProfile = () => {
             const decodedToken = JSON.parse(atob(token.split('.')[1]));
             setUsername(decodedToken.username);
         }
-    }, []); // Empty dependency array ensures this effect runs only once on mount
+    }, []); 
 
-    // State for form fields
+    
     const [formData, setFormData] = useState({
         height: '',
         weight: '',
@@ -25,7 +25,7 @@ const UpdateProfile = () => {
         medications: ''
     });
 
-    // Fetch user profile data and populate the form fields on component mount
+    //Fetch user profile data 
     useEffect(() => {
         const fetchUserProfile = async () => {
             try {
