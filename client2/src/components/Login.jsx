@@ -69,7 +69,7 @@ const Login = () => {
     }, [isLoggedIn]);
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gradient-to-r ffrom-beige-100 to-beige-300">
+        <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-beige-100 to-beige-300">
             <div className="max-w-lg w-full mt-10 p-8 bg-pink-100 rounded-lg shadow-md">
                 <h2 className="text-3xl font-semibold mb-6 text-center">{isLoggedIn ? '' : 'Login'}</h2>
                 {isLoggedIn ? (

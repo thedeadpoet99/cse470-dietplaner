@@ -14,8 +14,26 @@ const postSchema = new Schema({
   name: {
     type: String,
     required: true
+  }, 
+  
+  likes: {
+    type: Number,
+    default: 0 // Default value for likes count
+  },
+  likedBy: [String] // Store usernames as strings
+}, { timestamps: true });
+
+
+postSchema.methods.like = async function(userId) {
+  // Check if the user has already liked the post
+  if (!this.likedBy.includes(userId)) {
+    this.likes += 1;
+    this.likedBy.push(userId);
+    await this.save();
+  } else {
+    throw new Error('User has already liked thiss post.');
   }
-}, { timestamps: true })
+};
 
 postSchema.statics.creatingpost = async function(title, content, name) {
 

@@ -1,7 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Register from './components/register';
 import RegisterPage from './pages/RegisterPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -13,11 +12,11 @@ import DetailPage from './pages/DetailPage';
 import HomePage from './pages/HomePage';
 import UserPasswordChangePage from './pages/UserPasswordChangePage';
 import UpdateProfilePage from './pages/UpdateProfilePage'; // import the UpdateProfilePage component
-import SlideShowPage from './pages/SlideShowPage';
 function App() {
   return (
     <Router>
-      <Header/>
+
+      <Header/> 
       <Routes>
       <Route path='/register' element={<RegisterPage/>} />
       <Route path='/login' element={<LoginPage/>} />
@@ -30,6 +29,7 @@ function App() {
       <Route path = '/user/passwordchange' element = {<UserPasswordChangePage/>} />
       </Routes>
       <Footer/>
+      
     </Router>
   );
 }
