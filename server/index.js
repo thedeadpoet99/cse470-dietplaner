@@ -1,3 +1,4 @@
+// index.js
 const express = require("express");
 const connectToDatabase = require("./config/db")
 const cors = require("cors");
@@ -7,6 +8,7 @@ const homeRoutes = require('./routes/home')
 const authRoutes = require('./routes/auth')
 const userRoutes = require('./routes/user')
 const postRoutes = require('./routes/post')
+const dietRoutes = require('./routes/diet'); // Import diet routes
 const app = express();
 const staticPath = path.join(__dirname, 'client2/build');
 const fs = require('fs');
@@ -24,6 +26,8 @@ app.use('/user', authRoutes)
 app.use('/user', userRoutes);
 
 app.use('/post', postRoutes);
+
+app.use('/diet', dietRoutes); // Use diet routes
 
 app.use(express.static(staticPath));
 

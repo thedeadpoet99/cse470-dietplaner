@@ -30,20 +30,21 @@ const Login = () => {
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await axios.post('http://localhost:3001/user/login', formData);
-            console.log('Login successful:', response.data);
-    
+    e.preventDefault();
+    try {
+        const response = await axios.post('http://localhost:3001/user/login', formData);
+        console.log('Login successful:', response.data);
+
+        if (response.data) {
             // Extract token and user data from the response
             const { token, user } = response.data;
-    
+
             // Store token in localStorage
             localStorage.setItem('token', token);
-    
+
             // Store user information (except password) in localStorage
             localStorage.setItem('user', JSON.stringify(user));
-    
+
             // Set isLoggedIn to true
             
             // Redirect to user profile page
@@ -53,13 +54,18 @@ const Login = () => {
                 window.location.href = `/`; //redirect to Home
             }, 1000);
             setIsLoggedIn(true);
-            
-        } catch (error) {
-            console.error('Login error:', error.response.data);
-            // Set error state to display error message
-            setError(error.response.data.message);
+        } else {
+            // Handle case where response data is undefined
+            console.error('Login error: Response data is undefined');
+            setError('An unexpected error occurred');
         }
-    };
+        
+    } catch (error) {
+        console.error('Login error:', error.response.data);
+        // Set error state to display error message
+        setError(error.response.data.message);
+    }
+};
 
     // Check if user is already logged in, if yes, redirect to home
     useEffect(() => {

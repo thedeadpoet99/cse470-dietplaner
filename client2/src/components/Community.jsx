@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-66
+
 const Community = () => {
     const [posts, setPosts] = useState([]);
     const [username, setUsername] = useState('');
