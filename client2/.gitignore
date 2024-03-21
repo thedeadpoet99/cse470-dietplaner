@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# .gitattributes
+client2/package-lock.json -text
+client2/package.json -text
+client2/src/*.css -text
+

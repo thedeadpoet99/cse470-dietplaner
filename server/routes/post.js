@@ -10,4 +10,6 @@ router.post('/', postController.createPost);
 
 router.get('/:id', postController.getPost);
 
+router.post('/:id/like', postController.likePost);
+
 module.exports = router;

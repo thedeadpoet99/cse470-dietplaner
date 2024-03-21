@@ -43,7 +43,7 @@ const Register = () => {
     }
   };
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-pink-200 to-purple-200">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-beige-100 to-beige-300">
       <div className="max-w-2xl w-full bg-pink-100 shadow-lg rounded-lg overflow-hidden mt-20">
       {isLoggedIn && (
           <div className="text-center">
@@ -78,7 +78,7 @@ const Register = () => {
             <input type="date" id="dob" name="dob" value={formData.dob} onChange={handleChange} className="form-input w-full" required />
           </div>
           <div className="mb-6">
-            <label htmlFor="height" className="block text-gray-700 text-sm font-bold mb-2">Height(cm):</label>
+            <label htmlFor="height" className="block text-gray-700 text-sm font-bold mb-2">Height</label>
             <input type="number" id="height" name="height" value={formData.height} onChange={handleChange} className="form-input w-full" required />
           </div>
           <div className="mb-6">

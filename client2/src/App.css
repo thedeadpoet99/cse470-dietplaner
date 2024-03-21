@@ -1,6 +1,10 @@
 .App {
   text-align: center;
 }
+.App {
+  text-align: center;
+  scroll-behavior: smooth; /* Add smooth scrolling behavior */
+}
 
 .App-logo {
   height: 40vmin;
