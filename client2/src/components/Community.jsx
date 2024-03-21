@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-
+66
 const Community = () => {
     const [posts, setPosts] = useState([]);
     const [username, setUsername] = useState('');
@@ -36,6 +35,7 @@ const Community = () => {
             const response = await fetch('http://localhost:3001/post', {});
             const data = await response.json();
             console.log(data);
+            data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
             setPosts(data);
         } catch (error) {
             console.error('Error fetching posts:', error);

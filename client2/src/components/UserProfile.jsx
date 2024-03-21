@@ -56,6 +56,7 @@ const UserProfile = () => {
                 <h2 className="text-2xl font-semibold text-white bg-gradient-to-r from-purple-500 to-blue-400 p-4 text-center">User Profile</h2>
                 <div className="p-6">
                     <p className="text-lg text-center text-white"><strong>Name:</strong> {userProfile.name}</p>
+                    <p className="text-lg text-center text-white"><strong>Name:</strong> {userProfile.name}</p>
                     <p className="text-lg text-center text-white"><strong>Username:</strong> {userProfile.username}</p>
                     <p className="text-lg text-center text-white"><strong>Date of Birth:</strong> {userProfile.dob}</p>
                     <p className="text-lg text-center text-white"><strong>Height:</strong> {userProfile.height}</p>
@@ -77,7 +78,10 @@ const UserProfile = () => {
                     Change Password
                 </Link>
             </div>
+           
         </div>
+
+        
     );
 };
 
@@ -141,4 +145,9 @@ export default UserProfile;
 //     );
 // };
 
-// export default UserProfile;
+// export default UserProfile; <div className="w-full md:w-1/2 lg:w-1/3 mx-4 bg-gradient-to-r from-blue-400 to-purple-500 rounded-lg overflow-hidden shadow-lg mb-1">
+                //     <h2 className="text-2xl font-semibold text-white bg-gradient-to-r from-purple-500 to-blue-400 p-4 text-center">Additional Box</h2>
+                //     <div className="p-5">
+                //         {/* Content of the additional box */}
+                //     </div>
+                // </div>

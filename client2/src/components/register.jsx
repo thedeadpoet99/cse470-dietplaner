@@ -78,11 +78,11 @@ const Register = () => {
             <input type="date" id="dob" name="dob" value={formData.dob} onChange={handleChange} className="form-input w-full" required />
           </div>
           <div className="mb-6">
-            <label htmlFor="height" className="block text-gray-700 text-sm font-bold mb-2">Height:</label>
+            <label htmlFor="height" className="block text-gray-700 text-sm font-bold mb-2">Height(cm):</label>
             <input type="number" id="height" name="height" value={formData.height} onChange={handleChange} className="form-input w-full" required />
           </div>
           <div className="mb-6">
-            <label htmlFor="weight" className="block text-gray-700 text-sm font-bold mb-2">Weight:</label>
+            <label htmlFor="weight" className="block text-gray-700 text-sm font-bold mb-2">Weight(kg):</label>
             <input type="number" id="weight" name="weight" value={formData.weight} onChange={handleChange} className="form-input w-full" required />
           </div>
           <button type="submit" className="bg-gradient-to-r from-pink-400 to-purple-500 hover:from-pink-500 hover:to-purple-600 text-white font-bold py-3 px-6 rounded-full focus:outline-none focus:shadow-outline transition duration-300 w-full">Register</button>
