@@ -110,6 +110,29 @@ exports.getAllDietDates = async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 };
+exports.bmicalculator = async (req, res) => {
+  const { username } = req.params;
 
+  try {
+      const user = await User.findOne({ username });
+
+      if (!user) {
+          return res.status(404).json({ error: 'User not found' });
+      }
+      const height = user.height
+      const weight = user.weight
+      if (!height || !weight) {
+          return res.status(400).json({ error: 'Height and weight are required' });
+      }
+
+      const heightInMeters = height / 100; // convert height from cm to meters
+      const bmi = weight / (heightInMeters * heightInMeters);
+
+      res.status(200).json({ bmi });
+  } catch (error) {
+      console.error('Error calculating BMI:', error);
+      res.status(500).json({ error: 'Internal server error' });
+  }
+};
   
 
