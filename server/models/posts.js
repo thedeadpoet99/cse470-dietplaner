@@ -20,8 +20,24 @@ const postSchema = new Schema({
     type: Number,
     default: 0 // Default value for likes count
   },
-  likedBy: [String] // Store usernames as strings
+  likedBy: [String],
+  comments: [{
+      text: {
+          type: String,
+          required: true
+      },
+      user: {
+          type: String,
+          required: true
+      },
+      createdAt: {
+          type: Date,
+          default: Date.now
+      }
+  }]
 }, { timestamps: true });
+// Store usernames as strings
+
 
 
 postSchema.methods.like = async function(userId) {

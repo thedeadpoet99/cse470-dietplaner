@@ -56,7 +56,6 @@ const UserProfile = () => {
                 <h2 className="text-2xl font-semibold text-white bg-gradient-to-r from-purple-500 to-blue-400 p-4 text-center">User Profile</h2>
                 <div className="p-6">
                     <p className="text-lg text-center text-white"><strong>Name:</strong> {userProfile.name}</p>
-                    <p className="text-lg text-center text-white"><strong>Name:</strong> {userProfile.name}</p>
                     <p className="text-lg text-center text-white"><strong>Username:</strong> {userProfile.username}</p>
                     <p className="text-lg text-center text-white"><strong>Date of Birth:</strong> {userProfile.dob}</p>
                     <p className="text-lg text-center text-white"><strong>Height:</strong> {userProfile.height}</p>

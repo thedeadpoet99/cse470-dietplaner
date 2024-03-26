@@ -6,6 +6,11 @@ const ShowBmi = () => {
     let bmiStage = '';
     let bmiDescription = '';
 
+
+
+
+
+
     useEffect(() => {
         const fetchBmiData = async () => {
             try {
@@ -27,19 +32,34 @@ const ShowBmi = () => {
             if (bmiResult.bmi < 18.5) {
                 bmiStage = 'Underweight';
                 bmiDescription = (
+                    <div className="text-center">
+
+               
+                    <img
+
+                    style={{ clipPath: 'inset(0px 0px 0px 50%)' }} 
+                     src="https://thumbs.dreamstime.com/b/young-man-white-shirt-underweight-comic-cartoon-illustration-unhealthy-nutrition-article-image-vector-character-79246727.jpg" />
+                  
                     <ul className="text-centerlist-disc mt-2">
                         <li>Weakened immune system</li>
                         <li>Nutritional deficiencies</li>
                         <li>Osteoporosis risk</li>
                     </ul>
+                    </div>
                 );
             } else if (bmiResult.bmi < 24.9) {
                 bmiStage = 'Normal weight';
                 bmiDescription = (
+                    <div className="text-center">
+                    <img 
+                    
+                    style={{ clipPath: 'inset(0px 0px 0px 5%)' }} 
+                    src="https://as1.ftcdn.net/v2/jpg/01/23/13/32/1000_F_123133286_PqCz6irotVXrTNI803iIfH9Va5A7ArmP.jpg" />
                     <ul className="text-centerlist-disc mt-2">
                         <li>Lower risks of chronic diseases</li>
                         <li>Healthy BMI range</li>
                     </ul>
+                    </div>
                 );
             } else if (bmiResult.bmi < 29.9) {
                 bmiStage = 'Overweight';
