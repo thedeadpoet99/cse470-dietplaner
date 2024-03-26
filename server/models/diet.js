@@ -13,7 +13,7 @@ const dietSchema = new mongoose.Schema({
     required: true,
     //unique: true,
   },
-  // You can add more fields here to store diet information for the specific date
+  
 });
 
 const Diet = mongoose.model('Diet', dietSchema);

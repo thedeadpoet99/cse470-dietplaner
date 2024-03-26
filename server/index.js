@@ -27,7 +27,7 @@ app.use('/user', userRoutes);
 
 app.use('/post', postRoutes);
 
-app.use('/diet', dietRoutes); // Use diet routes
+app.use('/diet', dietRoutes); 
 
 app.use(express.static(staticPath));
 
