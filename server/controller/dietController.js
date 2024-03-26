@@ -2,34 +2,38 @@ const Diet = require('../models/diet');
 const User = require('../models/user');
 
 exports.trackDiet = async (req, res) => {
-  const { dates } = req.body;
-
-  try {
-    const newDiets = [];
-    for (const date of dates) {
-      // You may want to add additional validation for username here
-      const user = await User.findOne({ username: req.params.username });
+    const { dates } = req.body;
+    const { username } = req.params;
+    
+    try {
+      const user = await User.findOne({ username });
       if (!user) {
-        console.error(`User ${req.params.username} not found`);
-        continue; // Skip tracking diet for this date if user not found
+        return res.status(404).json({ error: 'User not found' });
       }
-
-      const diet = new Diet({
-        user: user._id,
-        date,
-        // Other diet information
-      });
-      await diet.save();
-      newDiets.push(diet);
+  
+      const newDiets = [];
+      for (const date of dates) {
+        const existingDiet = await Diet.findOne({ user: user._id, date });
+        if (existingDiet) {
+          continue; // Skip this date if it already exists
+        }
+  
+        const diet = new Diet({
+          user: user._id,
+          date,
+          // Other diet information
+        });
+        await diet.save();
+        newDiets.push(diet);
+      }
+  
+      res.status(201).json({ message: 'Diets tracked successfully', diets: newDiets });
+    } catch (error) {
+      console.error('Error tracking diets:', error);
+      res.status(500).json({ error: 'Internal server error' });
     }
-
-    res.status(201).json({ message: 'Diets tracked successfully', diets: newDiets });
-  } catch (error) {
-    console.error('Error tracking diets:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-};
-
+  };
+  
 
 // Controller function to get diet tracking for a specific date
 exports.getDiet = async (req, res) => {
@@ -106,6 +110,28 @@ exports.getAllDietDates = async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 };
+exports.bmicalculator = async (req, res) => {
+  const { username } = req.params;
 
+  try {
+      const user = await User.findOne({ username });
+
+      if (!user) {
+          return res.status(404).json({ error: 'User not found' });
+      }
+      const height = user.height
+      const weight = user.weight
+      if (!height || !weight) {
+          return res.status(400).json({ error: 'Height and weight are required' });
+      }
+
+      const heightInMeters = height / 100; // convert height from cm to meters
+      const bmi = weight / (heightInMeters * heightInMeters);
+
+      res.status(200).json({ bmi });
+  } catch (error) {
+      console.error('Error calculating BMI:', error);
+      res.status(500).json({ error: 'Internal server error' });
+  }
+};
   
-
