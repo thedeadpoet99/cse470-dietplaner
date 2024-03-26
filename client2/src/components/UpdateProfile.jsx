@@ -94,7 +94,7 @@ const UpdateProfile = () => {
     };
 
     return (
-        <div className="max-w-md mx-auto bg-gradient-to-r from-beige-100 to-beige-300 shadow-md rounded px-8 py-6 mt-5 mb-10">
+        <div className="max-w-md mx-auto bg-black shadow-md rounded px-8 py-6 mt-5 mb-10">
             <h2 className="text-2xl font-semibold mb-4 text-center text-white">Update Profile</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
@@ -158,6 +158,5 @@ const UpdateProfile = () => {
 };
 
 export default UpdateProfile;
-
 
 

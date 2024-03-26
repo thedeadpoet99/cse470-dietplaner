@@ -6,6 +6,11 @@ const ShowBmi = () => {
     let bmiStage = '';
     let bmiDescription = '';
 
+
+
+
+
+
     useEffect(() => {
         const fetchBmiData = async () => {
             try {
@@ -27,35 +32,54 @@ const ShowBmi = () => {
             if (bmiResult.bmi < 18.5) {
                 bmiStage = 'Underweight';
                 bmiDescription = (
-                    <ul className="text-left list-disc mt-2">
+                    <div className="text-center">
+
+               
+                    <img
+
+                    style={{ clipPath: 'inset(0px 0px 0px 50%)' }} 
+                     src="https://thumbs.dreamstime.com/b/young-man-white-shirt-underweight-comic-cartoon-illustration-unhealthy-nutrition-article-image-vector-character-79246727.jpg" />
+                  
+                    <ul className="text-centerlist-disc mt-2">
                         <li>Weakened immune system</li>
                         <li>Nutritional deficiencies</li>
                         <li>Osteoporosis risk</li>
                     </ul>
+                    </div>
                 );
             } else if (bmiResult.bmi < 24.9) {
                 bmiStage = 'Normal weight';
                 bmiDescription = (
-                    <ul className="text-left list-disc mt-2">
+                    <div className="text-center">
+                    <img 
+                    
+                    style={{ clipPath: 'inset(0px 0px 0px 5%)' }} 
+                    src="https://as1.ftcdn.net/v2/jpg/01/23/13/32/1000_F_123133286_PqCz6irotVXrTNI803iIfH9Va5A7ArmP.jpg" />
+                    <ul className="text-centerlist-disc mt-2">
                         <li>Lower risks of chronic diseases</li>
                         <li>Healthy BMI range</li>
                     </ul>
+                    </div>
                 );
             } else if (bmiResult.bmi < 29.9) {
                 bmiStage = 'Overweight';
                 bmiDescription = (
-                    <ul className="text-left list-disc mt-2">
+                    <div className="text-center">
+                    <img src="https://banner2.cleanpng.com/20180302/ajw/kisspng-fat-adipose-tissue-royalty-free-clip-art-depressed-beer-belly-5a9927f1668d72.2385101015199866734201.jpg" alt="BMI Description" className="mx-auto mb-4" />
+                    <ul className="text-centerlist-disc mt-2">
                         <li>Increased risks of type 2 diabetes</li>
                         <li>High blood pressure risk</li>
                         <li>Heart disease risk</li>
                         <li>Stroke risk</li>
                         <li>Risk of certain cancers</li>
                     </ul>
+                    </div>
                 );
             } else if (bmiResult.bmi < 34.9) {
                 bmiStage = 'Obesity (Class 1)';
                 bmiDescription = (
-                    <ul className="text-left list-disc mt-2">
+                    
+                    <ul className="text-centerlist-disc mt-2">
                         <li>Higher risks of type 2 diabetes</li>
                         <li>Increased risk of heart disease</li>
                         <li>Stroke risk</li>
@@ -65,15 +89,19 @@ const ShowBmi = () => {
             } else {
                 bmiStage = 'Severe Obesity';
                 bmiDescription = (
-                    <ul className="text-left list-disc mt-2">
-                        <li>Greatly increased risk of serious health conditions</li>
-                        <li>Higher risk of type 2 diabetes</li>
-                        <li>High blood pressure risk</li>
-                        <li>Heart disease risk</li>
-                        <li>Stroke risk</li>
-                        <li>Risk of certain cancers</li>
-                    </ul>
+                    <div className="text-center">
+                        <img src="https://banner2.cleanpng.com/20180302/ajw/kisspng-fat-adipose-tissue-royalty-free-clip-art-depressed-beer-belly-5a9927f1668d72.2385101015199866734201.jpg" alt="BMI Description" className="mx-auto mb-4" />
+                        <ul className="text-left list-disc mt-2">
+                            <li>Greatly increased risk of serious health conditions</li>
+                            <li>Higher risk of type 2 diabetes</li>
+                            <li>High blood pressure risk</li>
+                            <li>Heart disease risk</li>
+                            <li>Stroke risk</li>
+                            <li>Risk of certain cancers</li>
+                        </ul>
+                    </div>
                 );
+                
             }
 
             return (
@@ -94,11 +122,17 @@ const ShowBmi = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-beige-100 to-beige-300">
-            <div className="max-w-lg w-full mt-10 p-8 bg-pink-100 rounded-lg shadow-md">
-                {renderBmiResult()}
-            </div>
+<div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-beige-100 to-beige-300">
+    <div className="max-w-md w-full mt-10 bg-white rounded-lg shadow-lg">
+        <div className="bg-gradient-to-r from-pink-200 to-pink-300 p-6 rounded-t-lg">
+            <h2 className="text-3xl text-center font-bold text-gray-800 mb-4">BMI Result</h2>
         </div>
+        <div className="p-6">
+            {renderBmiResult()}
+        </div>
+    </div>
+</div>
+
     );
 };
 

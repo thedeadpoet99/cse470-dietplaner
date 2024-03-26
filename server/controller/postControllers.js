@@ -73,6 +73,35 @@ const likePost = async (req, res) => {
         res.status(400).json({ error: error.message });
     }
 };
+const addComment = async (req, res) => {
+    const { id } = req.params;
 
+    const { text, user } = req.body;
+    try {
+        const post = await posts.findById(id);
+        if (!post) {
+            return res.status(404).json({ error: 'Post not found.' });
+        }
+        post.comments.push({ text, user });
+        await post.save();
+        res.status(200).json({ message: 'Comment added successfully.' });
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+};
 
-module.exports = { getPosts, createPost, getPost, likePost }
+const getComments = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const post = await posts.findById(id);
+        if (!post) {
+            return res.status(404).json({ error: 'Post not found.' });
+        }
+        const comments = post.comments;
+        res.status(200).json(comments);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+};
+
+module.exports = { getPosts, createPost, getPost, likePost, addComment, getComments };
