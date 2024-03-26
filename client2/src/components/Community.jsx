@@ -128,7 +128,7 @@ const Community = () => {
                             <Link to={`Details/${post._id}`} className="text-blue-500">Read More</Link>
                             <p className="text-gray-500">-{post.name}</p>
                             {/* Render like button only for other authors' posts */}
-                            {post.name !== username && (
+                            {post.name !== username  && (
                                 <div className="flex items-center mt-2">
                                 <button
                                     className="text-sm bg-blue-500 text-white px-3 py-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"

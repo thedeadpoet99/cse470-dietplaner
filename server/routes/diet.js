@@ -17,6 +17,6 @@ router.put('/track/:date', dietController.updateDiet);
 router.delete('/track/:date', dietController.deleteDiet);
 
 router.get('/diet-dates/:username', dietController.getAllDietDates);
-
+router.post('/bmicalculator/:username',dietController.bmicalculator)
 
 module.exports = router;
