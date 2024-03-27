@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const userControllers = require('../controller/userControllers');
+const NotificationController = require('../controller/notificationController');
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 const bcrypt = require('bcrypt');
@@ -12,11 +13,12 @@ router.get('/register', (req, res) => {
 });
 
 router.post('/register', userControllers.registerUser);
-router.post('/login', userControllers.loginUser);
+//router.post('/login', userControllers.loginUser);
+router.post('/login', userControllers.loginUser, NotificationController.generateNotifications);
 router.post('/logout', userControllers.logoutUser);
 router.post('/password/change', userControllers.changePassword);
 router.post('/profile/update', userControllers.updateUserProfile);
-
+//router.post('/login-with-notifications', UserController.loginWithNotifications);
 module.exports = router;
 
 

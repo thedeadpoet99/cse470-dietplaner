@@ -36,6 +36,7 @@ const Dashboard = () => {
         <button className="text-lg bg-green-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105">Workout Recommendations</button>
         <button className="text-lg bg-green-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105">Calorie Counter</button>
         <Link to="/showbmi" className="text-lg bg-green-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105">Show BMI</Link>
+        <Link to="/notifications" className="text-lg bg-green-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105">Notifications</Link>
       </div>
     </div>
   );
