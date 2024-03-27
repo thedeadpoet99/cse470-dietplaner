@@ -55,12 +55,12 @@ const likePost = async (req, res) => {
 
         // Check if the user is trying to like their own post
         if (authorUsername === username) {
-            return res.status(400).json({ error: 'User cannot like their own post.' });
+            return res.status(400).json({ error: 'You cannot like your own post.' });
         }
 
         // Check if the user has already liked the post
         if (post.likedBy.includes(username)) {
-            return res.status(400).json({ error: 'User has already liked this post.' });
+            return res.status(400).json({ error: 'You have already liked this post.' });
         }
 
         post.likes += 1;
