@@ -37,7 +37,7 @@ const ShowBmi = () => {
                
                     <img
 
-                    style={{ clipPath: 'inset(0px 0px 0px 50%)' }} 
+                    
                      src="https://thumbs.dreamstime.com/b/young-man-white-shirt-underweight-comic-cartoon-illustration-unhealthy-nutrition-article-image-vector-character-79246727.jpg" />
                   
                     <ul className="text-centerlist-disc mt-2">
