@@ -14,6 +14,7 @@ import UserPasswordChangePage from './pages/UserPasswordChangePage';
 import UpdateProfilePage from './pages/UpdateProfilePage'; // import the UpdateProfilePage component
 import DietCalendarPage from './pages/DietCalendarPage';
 import ShowBmi from './pages/ShowBmi';
+import MealPlanPage from './pages/MealPlanPage';
 function App() {
   return (
     <Router>
@@ -31,6 +32,7 @@ function App() {
       <Route path = '/user/passwordchange' element = {<UserPasswordChangePage/>} />
       <Route path="/diet-calendar" element={<DietCalendarPage/>} />
       <Route path="/showbmi" element={<ShowBmi/>} />
+      <Route path="/mealplan" element={<MealPlanPage/>} />
       </Routes>
       <Footer/>
       
