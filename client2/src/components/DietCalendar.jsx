@@ -9,7 +9,6 @@ const DietCalendar = () => {
   const [error, setError] = useState('');
   const [username, setUsername] = useState('');
   const [message, setMessage] = useState('');
-
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (!token) {
