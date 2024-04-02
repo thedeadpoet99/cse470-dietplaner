@@ -16,6 +16,7 @@ import DietCalendarPage from './pages/DietCalendarPage';
 import ShowBmi from './pages/ShowBmi';
 import MealPlanPage from './pages/MealPlanPage';
 import WorkRecoPage from './pages/workRecoPage';
+import CalorieCounterPage from './pages/CalorieCounterPage';
 function App() {
   return (
     <Router>
@@ -34,6 +35,7 @@ function App() {
       <Route path="/diet-calendar" element={<DietCalendarPage/>} />
       <Route path="/showbmi" element={<ShowBmi/>} />
       <Route path="/mealplan" element={<MealPlanPage/>} />
+      <Route path="/caloriecounter" element={<CalorieCounterPage/>} />
       <Route path="/workreco" element={<WorkRecoPage/>} />
       </Routes>
       <Footer/>
